@@ -13,9 +13,17 @@ export const actions = {
 			stream: false,
 			format: 'json'
 		});
-		const responseObject = JSON.parse(response.response.trim());
-		await executeFunction(responseObject.functionName, responseObject.parameters);
-		const jsonStr = JSON.stringify(responseObject, null, 2);
-		return { response: jsonStr };
+		try {
+			const responseObject = JSON.parse(response.trim());
+			await executeFunction(responseObject.functionName, responseObject.parameters);
+			const jsonStr = JSON.stringify(responseObject, null, 2);
+			return { response: `Files were successfully Created!` };
+		} catch (error) {
+			return { response: `Failed to Execute function!` };
+		}
 	}
 };
+
+// export const load = async () => ({
+//     joke:"loremsakjcnlaobicauiohvpUWHFPUHEVAMHDPVUHUHVVSUEHVT0AMHEFHSRFMUOHSMOHSOUFHSMOUFMHSJFHSOUGVHMOUVMHBNUSHVMOSVHUOdsblkjazl dv  havsbfkhbdhnfbavihusbfihbckhjdbvd"
+//   });

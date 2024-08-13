@@ -1,8 +1,10 @@
 <script>
+	let { data, form } = $props();
 	import { enhance } from '$app/forms';
 	import Highlight, { LineNumbers } from 'svelte-highlight';
 	import json from 'svelte-highlight/languages/json';
-	import github from 'svelte-highlight/styles/github';
+	import Navbar from '../lib/Navbar.svelte';
+	import atomOneDark from 'svelte-highlight/styles/atom-one-dark';
 	const models = [
 		{
 			name: 'codegeex4'
@@ -17,28 +19,46 @@
 			name: 'llama3'
 		}
 	];
-	let { form } = $props();
 </script>
 
 <svelte:head>
-	{@html github}
+	{@html atomOneDark}
 </svelte:head>
-<h1>SvelteGPT</h1>
 
-<form action="?/prompt" method="post" use:enhance>
-	<select name="model">
+<Navbar />
+<h1 data-aos="fade-right" class="text-center fs-1 mt-5 mb-5">SvelteGPT</h1>
+
+<form class="text-center container" action="?/prompt" method="post" use:enhance>
+	<select
+		data-aos="fade-right"
+		class="form-control bg-dark text-white form-select fs-1"
+		name="model"
+	>
 		{#each models as model (model.name)}
 			<option value={model.name}>{model.name}</option>
 		{/each}
 	</select>
 	<br />
-	<textarea name="prompt" placeholder="Prompt"> </textarea>
-	<button type="submit">Submit</button>
+	<textarea
+		data-aos="fade-up"
+		class="form-control bg-dark text-white fs-1 mt-3 mb-3"
+		name="prompt"
+		placeholder="Prompt"
+	></textarea>
+	<br />
+	<button data-aos="fade-down" class="btn-danger btn-lg btn fs-1" type="submit">Submit</button>
 </form>
 
-{#if form}
-	<h2>Response</h2>
-	<Highlight language={json} code={form.response} let:highlighted>
-		<LineNumbers {highlighted} />
-	</Highlight>
-{/if}
+<!-- response -->
+<section class="container mt-4">
+	<div class="card bg-dark text-white">
+		<div class="card-body">
+			<h2 class="text-center mb-3">Response</h2>
+			{#if form}
+				<h3 class="text-center mb-3">{form.response}</h3>
+			{:else}
+				<h3 class="text-center mb-3">No Response</h3>
+			{/if}
+		</div>
+	</div>
+</section>
