@@ -2,7 +2,6 @@
 	let { form } = $props();
 	import { enhance } from '$app/forms';
 	import Navbar from '../lib/Navbar.svelte';
-	import atomOneDark from 'svelte-highlight/styles/atom-one-dark';
 	const models = [
 		{
 			name: 'codegeex4'
@@ -18,10 +17,6 @@
 		}
 	];
 </script>
-
-<svelte:head>
-	{@html atomOneDark}
-</svelte:head>
 
 <Navbar />
 <h1 data-aos="fade-right" class="text-center fs-1 mt-5 mb-5">SvelteGPT</h1>
