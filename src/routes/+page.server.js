@@ -23,7 +23,3 @@ export const actions = {
 		}
 	}
 };
-
-// export const load = async () => ({
-//     joke:"loremsakjcnlaobicauiohvpUWHFPUHEVAMHDPVUHUHVVSUEHVT0AMHEFHSRFMUOHSMOHSOUFHSMOUFMHSJFHSOUGVHMOUVMHBNUSHVMOSVHUOdsblkjazl dv  havsbfkhbdhnfbavihusbfihbckhjdbvd"
-//   });

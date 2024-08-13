@@ -1,8 +1,6 @@
 <script>
-	let { data, form } = $props();
+	let { form } = $props();
 	import { enhance } from '$app/forms';
-	import Highlight, { LineNumbers } from 'svelte-highlight';
-	import json from 'svelte-highlight/languages/json';
 	import Navbar from '../lib/Navbar.svelte';
 	import atomOneDark from 'svelte-highlight/styles/atom-one-dark';
 	const models = [
