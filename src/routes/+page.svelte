@@ -19,12 +19,12 @@
 </script>
 
 <Navbar />
-<h1 data-aos="fade-right" class="text-center fs-1 mt-5 mb-5">SvelteGPT</h1>
+<h1 data-aos="fade-right" class="text-center text-light fs-1 mt-5 mb-5">SvelteGPT</h1>
 
 <form class="text-center container" action="?/prompt" method="post" use:enhance>
 	<select
 		data-aos="fade-right"
-		class="form-control bg-dark text-white form-select fs-1"
+		class="form-control bg-dark text-light form-select fs-1"
 		name="model"
 	>
 		{#each models as model (model.name)}
@@ -33,18 +33,22 @@
 	</select>
 	<br />
 	<textarea
-		data-aos="fade-up"
-		class="form-control bg-dark text-white fs-1 mt-3 mb-3"
+		data-aos="fade-down"
+		class="form-control bg-dark text-light fs-1 mt-3 mb-3"
 		name="prompt"
 		placeholder="Prompt"
 	></textarea>
 	<br />
-	<button data-aos="fade-down" class="btn-danger btn-lg btn fs-1" type="submit">Submit</button>
+	<button
+		data-aos="fade-up"
+		class="form-control btn-primary btn-lg btn fs-1 fw-medium"
+		type="submit">SUBMIT</button
+	>
 </form>
 
 <!-- response -->
-<section class="container mt-4">
-	<div class="card bg-dark text-white">
+<section class="container mt-4" data-aos="fade-left">
+	<div class="card bg-dark text-light">
 		<div class="card-body">
 			<h2 class="text-center mb-3">Response</h2>
 			{#if form}
@@ -55,3 +59,10 @@
 		</div>
 	</div>
 </section>
+
+<style>
+	textarea::placeholder {
+		color: #fff;
+		opacity: 0.5;
+	}
+</style>
