@@ -5,15 +5,16 @@ const systemPrompt = `You are a helpful assistant that takes a question and find
 
 export const actions = {
 	prompt: async ({ cookies, request }) => {
-		const { model, prompt } = Object.fromEntries(await request.formData());
-		const response = await ollama.generate({
-			model: model,
-			system: systemPrompt,
-			prompt: prompt,
-			stream: false,
-			format: 'json'
-		});
 		try {
+			const { model, prompt } = Object.fromEntries(await request.formData());
+			const response = await ollama.generate({
+				model: model,
+				system: systemPrompt,
+				prompt: prompt,
+				stream: false,
+				format: 'json'
+			});
+
 			const responseObject = JSON.parse(response.trim());
 			await executeFunction(responseObject.functionName, responseObject.parameters);
 			const jsonStr = JSON.stringify(responseObject, null, 2);
