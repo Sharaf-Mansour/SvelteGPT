@@ -41,7 +41,7 @@
 	<br />
 	<button
 		data-aos="fade-up"
-		class="form-control btn-primary btn-lg btn fs-1 fw-medium"
+		class="form-control btn-primary btn-lg btn fs-1 fw-medium py-3"
 		type="submit">SUBMIT</button
 	>
 </form>
