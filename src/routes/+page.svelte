@@ -2,6 +2,7 @@
 	let { form } = $props();
 	import { enhance } from '$app/forms';
 	import Navbar from '../lib/Navbar.svelte';
+	let selectedModel = $derived(form?.model);
 	const models = [
 		{
 			name: 'codegeex4'
@@ -26,6 +27,7 @@
 		data-aos="fade-right"
 		class="form-control bg-dark text-light form-select fs-1"
 		name="model"
+		value={selectedModel}
 	>
 		{#each models as model (model.name)}
 			<option value={model.name}>{model.name}</option>
